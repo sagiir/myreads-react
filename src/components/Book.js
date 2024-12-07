@@ -4,8 +4,11 @@ import PropTypes from "prop-types";
 * title, author, image etc.
 */
 const Book = ({ book, updateBookShelf }) => {
-    //console.log(book);
+    // console.log(book); // for debugging
     const {title, authors, imageLinks, shelf} = book;
+
+    // to fix the issue where some books are missing imageLink and it causes errors 
+    var bookCover = imageLinks ? imageLinks.thumbnail : 'https://via.placeholder.com/128x193?text=No+Cover';
 
     return (
         <div className="book">
@@ -16,7 +19,7 @@ const Book = ({ book, updateBookShelf }) => {
                         width: 128,
                         height: 192,
                         backgroundImage:
-                            `url(${imageLinks.thumbnail})`,
+                            `url(${bookCover})`,
                     }}
                 ></div>
                 <div className="book-shelf-changer">

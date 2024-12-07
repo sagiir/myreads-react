@@ -13,7 +13,7 @@ const BookShelf = ({ shelfTitle, books, updateBookShelf }) => {
                         <li key={book.id}>
                             <Book book={book} updateBookShelf={updateBookShelf} />{/* passing book data to Book component */}
                         </li>
-                    ))};
+                    ))}
                 </ol>
             </div>
         </div>

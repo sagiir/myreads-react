@@ -24,11 +24,11 @@ const Search = ({ books, updateBookShelf }) => {
                 console.log(`API Call: search(${query})`);
                 const apiResponse = await search(query.trim());
                 if (apiResponse.error) {
-                    console.log('error: ', apiResponse.error);
+                    // console.log('error: ', apiResponse.error); // enable for debugging
                     setSearchResults([]);
                 }
                 else {
-                    console.log(`search results: ${apiResponse.length}`);
+                    // console.log(`search results: ${apiResponse.length}`); // enable for debugging
 
                     // map search results and include the shelf information from current books 
                     const updatedBooks = () => apiResponse.map((r) => {
@@ -73,7 +73,7 @@ const Search = ({ books, updateBookShelf }) => {
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">                
-                    {searchResults.map((book) => (
+                    {Array.isArray(searchResults) && searchResults.map((book) => (
                         <li>
                             <Book 
                                 key={book.id}
