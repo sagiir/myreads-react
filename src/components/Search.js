@@ -21,21 +21,25 @@ const Search = ({ books, updateBookShelf }) => {
             }
 
             try {
-                console.log(`API Call: search(${query})`);
-                const apiResponse = await search(query.trim());
-                if (apiResponse.error) {
-                    // console.log('error: ', apiResponse.error); // enable for debugging
+                //console.log(`API Call: search(${query})`);
+                const apiResponse = await search(query.trim(), 15);
+                if (apiResponse.error) {                    
                     setSearchResults([]);
-                }
+                    //console.log(apiResponse.error);
+                }                
                 else {
-                    // console.log(`search results: ${apiResponse.length}`); // enable for debugging
+                    //console.log(apiResponse);
 
                     // map search results and include the shelf information from current books 
-                    const updatedBooks = () => apiResponse.map((r) => {
-                        const bookShelf = books.find((b) => b.div === r.id);
+
+                    const updatedBooks = apiResponse.map((book) => {
+                        const existingBook = books.find((b) => b.id === book.id);
+                        if(existingBook)
+                            console.log(existingBook);
+                        // assign shelf information, default 'none'
                         return {
-                            ...r,
-                            shelf: bookShelf ? bookShelf.shelf : 'none'
+                            ...book,
+                            shelf: existingBook ? existingBook.shelf : 'none'
                         }
                     });
 
@@ -74,9 +78,8 @@ const Search = ({ books, updateBookShelf }) => {
             <div className="search-books-results">
                 <ol className="books-grid">                
                     {Array.isArray(searchResults) && searchResults.map((book) => (
-                        <li>
-                            <Book 
-                                key={book.id}
+                        <li key={book.id}>                       
+                            <Book                                
                                 book={book}
                                 updateBookShelf={updateBookShelf}
                             />

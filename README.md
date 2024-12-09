@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Book Trek - Book Tracking App
+Book Trek is a React application for managing your book library. You can search for any book, add them to shelves (i.e. Want to Read, Currently Reading, Read). 
+This proejct was created as part of Udacity's React Fundamentals program. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+Book Trek helps users to organize and track their book reading list. 
+- Search: find a book using book name, author or ISBN
+- Book Shelf: **Currently Reading**, **Want to read**, **Read**
+- Move books: Easily move books around from one shelf to another or remove from shelf. 
 
-## Available Scripts
+## Setup and Installation
 
-In the project directory, you can run:
+To set up and run the project on your local machine, follow these steps:
 
-### `npm start`
+### 1. **Prerequisites** 
+- Ensure **Node.js** is installed on your system.
+- Install a text editor or IDE like **VS Code**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. **Clone The Repository**
+- Open Command Prompt or PowerShell
+- Navigate to the folder where you want to download this project
+- Run the following command to download:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    `git clone https://github.com/sagiir/myreads-react.git`
 
-### `npm test`
+### 3. Install Dependencies
+- Run the following command to install all necessary packages:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    `npm install`
 
-### `npm run build`
+### 4. Start Development Server
+- Start the application by running this command
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    `npm start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- This command will launch dev server, and the application will be available at:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    `http://localhost:3000` 
 
-### `npm run eject`
+## Running the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Main Page:
+- Displays books organized into shelves: Currently Reading, Want to Read, and Read
+- Each book has a dropdown menu that you can use to move it to a different shelf, or remove.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2 Search:
+- Use the search page to find any book by a certain keyword (e.g., King, Satire, React etc.)
+- Add books to any shelf directly from search page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3 Shelf Update
+- Books will retain their assigned shelves even after page refresh
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Folder Structure
 
-## Learn More
+```
+myreads-react
+|__ src/
+|   |__ components /        # React components
+|   |   |___ App.js         # Main app component
+|   |   |___ Book.js        # Individual Book component
+|   |   |___ BookShelf.js   # Displays books by shelf
+|   |   |___ search.js      # Search functionality
+|   |__ BookAPI.js          # API for books data
+|   |__ App.css             # CSS styles
+|   |__ index.js            # App entry point
+|__ public/
+|   |__ index.html          # HTML template file
+|__ package.json            # Dependencies and scripts
+|__ README.md               # Project documentation (this file)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
