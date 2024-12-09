@@ -5,10 +5,17 @@ import BookShelf from './components/BookShelf';
 import Search from './components/Search';
 import './App.css';
 import BookDetail from './components/BookDetail';
+import { object } from 'prop-types';
 
 const App = () => {
   // temp - hard coded list and state for books
   const [books, setBooks] = useState([]);
+
+  const shelves = {
+    currentlyReading: 'Currently Reading',
+    wantToRead: 'Want to Read',
+    read: 'Read',
+  };
 
   const fetchBooks = async () => {
     try {
@@ -52,21 +59,16 @@ const App = () => {
             <div className="list-books">
               <div className="list-books-content">
                 <div>
-                  <BookShelf
-                    shelfTitle="Currently Reading"
-                    books={books.filter((book) => book.shelf === 'currentlyReading')}
-                    updateBookShelf={updateBookShelf}
-                  />
-                  <BookShelf
-                    shelfTitle="Want to Read"
-                    books={books.filter((book) => book.shelf === 'wantToRead')}
-                    updateBookShelf={updateBookShelf}
-                  />
-                  <BookShelf
-                    shelfTitle="Read"
-                    books={books.filter((book) => book.shelf === 'read')}
-                    updateBookShelf={updateBookShelf}
-                  />
+                  {
+                    Object.keys(shelves).map((key) =>(
+                      <BookShelf
+                        key={key}
+                        shelfTitle={shelves[key]}
+                        books={books.filter((book) => book.shelf === key)}
+                        updateBookShelf={updateBookShelf}
+                    />
+                    ))
+                  }
                 </div>
               </div>
               <div className="open-search">

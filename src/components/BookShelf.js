@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-const BookShelf = ({ shelfTitle, books, updateBookShelf }) => {
+const BookShelf = ({ shelfTitle, books, updateBookShelf }) => {    
     //console.log(books);
     return (
         <div className="bookshelf">
