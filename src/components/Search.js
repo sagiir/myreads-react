@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { search } from '../BooksAPI'
+import { search } from '../BooksAPI';
+import { Atom } from 'react-loading-indicators';
 
 import Book from './Book';
 
@@ -23,10 +24,10 @@ const Search = ({ books, updateBookShelf }) => {
             try {
                 //console.log(`API Call: search(${query})`);
                 const apiResponse = await search(query.trim(), 15);
-                if (apiResponse.error) {                    
+                if (apiResponse.error) {
                     setSearchResults([]);
                     //console.log(apiResponse.error);
-                }                
+                }
                 else {
                     //console.log(apiResponse);
 
@@ -34,7 +35,7 @@ const Search = ({ books, updateBookShelf }) => {
 
                     const updatedBooks = apiResponse.map((book) => {
                         const existingBook = books.find((b) => b.id === book.id);
-                        if(existingBook)
+                        if (existingBook)
                             console.log(existingBook);
                         // assign shelf information, default 'none'
                         return {
@@ -61,7 +62,6 @@ const Search = ({ books, updateBookShelf }) => {
         //console.log(e.target.value);
         setQuery(e.target.value);
     }
-
     return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -76,10 +76,10 @@ const Search = ({ books, updateBookShelf }) => {
                 </div>
             </div>
             <div className="search-books-results">
-                <ol className="books-grid">                
+                <ol className="books-grid">
                     {Array.isArray(searchResults) && searchResults.map((book) => (
-                        <li key={book.id}>                       
-                            <Book                                
+                        <li key={book.id}>
+                            <Book
                                 book={book}
                                 updateBookShelf={updateBookShelf}
                             />

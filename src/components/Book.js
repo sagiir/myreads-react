@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 /*
 * Book component: Recieves individual book as prop which contains book properties like 
@@ -13,15 +14,18 @@ const Book = ({ book, updateBookShelf }) => {
     return (
         <div className="book">
             <div className="book-top">
-                <div
-                    className="book-cover"
-                    style={{
-                        width: 128,
-                        height: 192,
-                        backgroundImage:
-                            `url(${bookCover})`,
-                    }}
-                ></div>
+                <Link to={`/book/${book.id}`}>
+                    <img
+                        src={bookCover}
+                        alt="title"
+                        className="book-cover"
+                        style={{
+                            width: 128,
+                            height: 192,                            
+                        }}  
+                    />
+                </Link>
+                
                 <div className="book-shelf-changer">
                     <select value={shelf || 'none'} onChange={(e) => updateBookShelf(book, e.target.value)}>
                         <option value="none" disabled>

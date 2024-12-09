@@ -4,6 +4,7 @@ import * as BookAPI from './BooksAPI';
 import BookShelf from './components/BookShelf';
 import Search from './components/Search';
 import './App.css';
+import BookDetail from './components/BookDetail';
 
 const App = () => {
   // temp - hard coded list and state for books
@@ -41,12 +42,14 @@ const App = () => {
   return (
     <Router>
       <div className="app">
+        <nav className='navbar'>
+          <div className='app-title'>Book Trek</div>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/search" className="nav-link">Search</Link>
+        </nav>
         <Routes>
           <Route path="/" element={
             <div className="list-books">
-              <div className="list-books-title">
-                <h1>Book Trek</h1>
-              </div>
               <div className="list-books-content">
                 <div>
                   <BookShelf
@@ -74,9 +77,15 @@ const App = () => {
           <Route path="/search" element={
             <Search books={books} updateBookShelf={updateBookShelf} />
           } />
+          <Route
+            path="/book/:id"
+            element={<BookDetail />}
+          />
         </Routes>
       </div>
     </Router>
   );
 }
+
+
 export default App;

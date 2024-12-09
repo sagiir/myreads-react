@@ -9,11 +9,7 @@ body {
 body,
 .app {
   background: white;
-}
-
-body{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+} 
 
 /* main page */
 
@@ -72,7 +68,7 @@ body{
 /* search page */
 
 .search-books-bar {
-  position: fixed;
+
   width: 100%;
   top: 0;
   left: 0;
@@ -178,4 +174,100 @@ body{
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* book details page */
+.book-detail{
+  max-width: 800;
+  margin: 40px auto;
+  padding: 20px;
+  color:#444;
+  background-color: f3f3f3;
+  border:1px solid #ddd;
+  border-radius: 7px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.book-detail-header
+{
+  display: flex;
+  align-items: flex-start;
+  gap:20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.book-detail-header img{
+  max-width: 150;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.book-detail-header h2{
+  font-size: 24px;
+  margin: 0 0 10px 0;;
+  line-height: 1.4;
+  color: #2c3e50;
+}
+
+.book-detail-body p{
+  font-size: 16px;
+  margin: 0;
+  counter-reset: #7f8c8d;
+  display: block;
+}
+
+.book-detail-body strong{
+  font-weight: bold;
+  color:#2c3e50;
+}
+.book-detail-body{
+  background-color: white;
+  padding:15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.book-detail-body p:not(:last-child){
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* navigation */
+.navbar{
+  background-color: #60ac5d;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:  0 2px 4px rgba(0,0,0,0.1);  
+}
+
+.navbar nav{
+  display: flex;
+  gap:15px;
+}
+
+.nav-link{
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size:16px;
+  font-weight: bold;
+  transition: color 0.4s ease;
+  margin-left:15px;
+}
+.nav-link:hover{
+  color:#1abc9c;
+}
+
+.nav-link.active{
+  color:#f30c12;
+}
+
+.app-title{
+  font-size:20px;
+  color:#fff;
+  font-weight: bold;
 }
